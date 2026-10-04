@@ -1,0 +1,48 @@
+{
+  "board": "my-board.kicad_pcb",
+
+  "plane_nets": ["GND", "+3V3"],
+  "plane_net_classes": {"+3V3": "V3P3"},
+  "plane_layers": ["In1.Cu", "In2.Cu", "In3.Cu", "In4.Cu"],
+  "supply_nets": ["+5V", "+3V3", "+1V8", "VBAT", "VIN"],
+
+  "class_clearance": {"HV": 0.4},
+  "fine_pitch_refs": ["U3"],
+  "copper_edge_clearance": 0.5,
+
+  "rf_net_prefixes": ["RF_", "Net-(ANT"],
+  "rf_reference_layer": "In1.Cu",
+  "rf_plane_layers": ["In1.Cu", "In4.Cu"],
+  "protect_nets": ["RF_ANT"],
+  "no_touch_classes": ["RF50"],
+  "never_rip_min_clearance": 0.3,
+
+  "stitch_net": "GND",
+  "stitch_pitch_mm": 3.0,
+
+  "rail_vmax": {"VIN": [20.0, "USB-PD contract, 20 V max"], "+5V": 5.0},
+  "rail_nominal_v": {"+5V": 5.0, "+3V3": 3.3},
+  "rail_vmin": {"+3V3": [3.0, "MCU datasheet, VDD min"]},
+  "ir_rails": {"+5V": [1.5, 3.0, "load budget: average 1.5 A, 3 A peak"]},
+  "sequence_controllers": ["U1"],
+
+  "component_registry": "doc/components",
+  "datasheet_dir": "doc/datasheets",
+  "jlcpcb_db": "~/.konnect/jlcpcb.db",
+
+  "testpoint_nets": ["NRST", "BOOT0", "SWDIO", "SWCLK", "USB_DP", "USB_DM"],
+  "testpoint_blocking_refs": ["J1", "BT1"],
+
+  "place_fixed_refs": ["J1", "U5"],
+  "place_fixed_prefixes": ["H", "ANT"],
+  "park_xy": [10.0, 10.0],
+
+  "no_net_pads": {
+    "J1": {"pads": ["A8", "B8"], "reason": "USB-C SBU unused on a power-and-USB2 port"}
+  },
+  "waivers": {
+    "verify_decoupling": {"U4:VDDA": "100 nF at 2.1 mm; ADC reference filtered separately"},
+    "check_uniformity": {"Q_NMOS:G_1:Q3": "gate driven directly, no series resistor by design"},
+    "check_components": {"DOC-4:U2": "only a series datasheet exists; pinout confirmed against it"}
+  }
+}

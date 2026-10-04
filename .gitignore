@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Per-project scratch output of the tools (DSN/SES, DRC reports, trial copies)
+work/
+
+# KiCad side files that must never ship with the toolkit
+*.kicad_pcb
+*.kicad_sch
+*.kicad_pro
+*.kicad_prl
+*.kicad_dru
+*.net
+*.ses
+*.dsn
+*-backups/
+fp-info-cache
+\#auto_saved_files#
+*.bak*
+*.lck
+
+# Simulation output
+*.h5
+openems_*/
+
+# OS / editors
+.DS_Store
+._*
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Local agent / assistant state
+.claude/
+.mcp.json
+
+# Instrument captures
+captures/
+testpoints.csv

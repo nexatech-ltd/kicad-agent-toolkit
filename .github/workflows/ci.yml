@@ -1,0 +1,30 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Python compiles
+        run: python -m compileall -q tools sim instruments
+      - name: Shell syntax
+        run: for f in $(git ls-files '*.sh'); do bash -n "$f"; done
+      - name: English only in code and docs
+        run: |
+          if git grep -nP '[\x{0400}-\x{04FF}]' -- . ':!LICENSE'; then
+            echo "Cyrillic text found: code, comments and docs must be in English"; exit 1
+          fi

@@ -1,0 +1,25 @@
+{
+  "gui_settings": { "enabled": false },
+  "guiSettings": { "enabled": false },
+  "router_settings": {
+    "enabled": true,
+    "max_passes": 30,
+    "job_timeout": "00:12:00",
+    "jobTimeoutString": "00:12:00",
+    "vias_allowed": true,
+    "automatic_neckdown": true,
+    "ignore_net_classes": [],
+    "fanout": { "enabled": false, "max_passes": 20 },
+    "optimizer": { "enabled": true, "max_passes": 4, "optimization_improvement_threshold": 5.0 }
+  },
+  "routerSettings": {
+    "enabled": true,
+    "maxPasses": 30,
+    "jobTimeoutString": "00:12:00",
+    "vias_allowed": true,
+    "automatic_neckdown": true,
+    "ignoreNetClasses": [],
+    "fanout": { "enabled": false, "maxPasses": 20 },
+    "optimizer": { "enabled": true, "maxPasses": 4, "optimizationImprovementThreshold": 5.0 }
+  }
+}
